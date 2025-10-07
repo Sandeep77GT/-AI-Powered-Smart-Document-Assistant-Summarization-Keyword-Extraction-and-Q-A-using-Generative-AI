@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1vlk9V5cwh_yo9YB5Wn4ARr3z9oZEuDy3
 """
 
-pip install streamlit PyPDF2 python-docx transformers torch sentence-transformers keybert
+
 
 # app.py
 import streamlit as st
