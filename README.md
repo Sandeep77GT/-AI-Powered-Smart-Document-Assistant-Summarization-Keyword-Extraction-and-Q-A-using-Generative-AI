@@ -1,68 +1,172 @@
-# -AI-Powered-Smart-Document-Assistant-Summarization-Keyword-Extraction-and-Q-A-using-Generative-AI
-# 📝 AI Document Assistant
+# AI-Powered Smart Document Assistant using Generative AI
 
-A **Streamlit-based AI-powered document assistant** that can process PDF, DOCX, and TXT files to provide **summarization, keyword extraction, and Q&A** functionalities. Built using Hugging Face Transformers, KeyBERT, and Sentence Transformers.
+## Overview
+This project implements an AI-powered document assistant that performs summarization, keyword extraction, and question answering on uploaded documents. The system supports multiple file formats including PDF, DOCX, and TXT, and leverages state-of-the-art transformer-based models for natural language understanding.
+
+The application is built using Streamlit and integrates pretrained models from Hugging Face Transformers and Sentence Transformers.
+
+---
+
+## Problem Statement
+Large documents are often difficult to analyze manually. This project aims to:
+
+- Automatically summarize long documents
+- Extract key topics and keywords
+- Enable interactive question answering
+- Improve productivity in document analysis
 
 ---
 
 ## Features
 
-- **Summarization:** Generate concise summaries of uploaded documents using `facebook/bart-large-cnn`.
-- **Keyword Extraction:** Extract the top keywords from documents using KeyBERT with Sentence Transformers.
-- **Question & Answer:** Ask questions about your document content and get AI-generated answers using `distilbert-base-cased-distilled-squad`.
-- **Multi-file support:** Upload multiple files and select the one you want to process.
-- **Supports PDF, DOCX, and TXT files.
+- Upload multiple documents (PDF, DOCX, TXT)
+- Automatic text extraction and preprocessing
+- Document summarization using transformer models
+- Keyword extraction using KeyBERT
+- Context-based question answering
+- Interactive web interface using Streamlit
+
+---
+
+## Supported File Formats
+
+- PDF
+- DOCX
+- TXT
+
+---
+
+## Methodology
+
+### 1. Text Extraction
+- PDF files processed using PyPDF2
+- DOCX files processed using python-docx
+- TXT files read directly
+
+---
+
+### 2. Text Preprocessing
+- Removal of newline characters
+- Basic cleaning and normalization
+
+---
+
+### 3. Summarization
+- Model: facebook/bart-large-cnn
+- Type: Abstractive summarization
+- Generates concise summaries from long documents
+
+---
+
+### 4. Keyword Extraction
+- Model: KeyBERT with SentenceTransformer (all-MiniLM-L6-v2)
+- Extracts top keywords based on semantic similarity
+
+---
+
+### 5. Question Answering
+- Model: distilbert-base-cased-distilled-squad
+- Performs extractive QA using document context
+- Returns the most relevant answer span
+
+---
+
+## System Architecture
+
+1. User uploads document(s)
+2. Text is extracted and cleaned
+3. User selects a document
+4. System provides three functionalities:
+   - Summarization
+   - Keyword extraction
+   - Question answering
+
+---
+
+## Project Structure
+├── app.py
+├── requirements.txt
+├── README.md
 
 ---
 
 ## Installation
 
-1. Clone the repository:
+### 1. Clone the Repository
+git clone https://github.com/your-username/ai-document-assistant.git
 
-```bash
-git clone https://github.com/your-username/AI-Document-Assistant.git
-cd AI-Document-Assistant
-pip install streamlit PyPDF2 python-docx transformers torch sentence-transformers keybert
+cd ai-document-assistant
 
-Usage
-
-Run the Streamlit app:
-
-streamlit run app.py
-
-
-Open the provided Local URL in your browser.
-
-Upload your PDF, DOCX, or TXT files.
-
-Use the tabs to:
-
-Summary: Generate a summary of the document.
-
-Keywords: Extract keywords.
-
-Q&A: Ask questions about the document content.
-
-
-Dependencies
-
-Streamlit
-PyPDF2
-python-docx
-Transformers
-Torch
-Sentence Transformers
-KeyBERT
-
-
-License
-
-This project is licensed under the MIT License. See the LICENSE
- file for details.
-
+### 2. Install Dependencies
+pip install -r requirements.txt
 
 ---
 
-If you want, I can also **provide a ready-to-use `app.py` snippet** that automatically chunks large PDFs to avoid that summarization error, so your app works out-of-the-box even for long documents like `FBL_PassItOn_Stories_Volume_1.pdf`.  
+## Running the Application
 
-Do you want me to do that?
+streamlit run app.py
+
+---
+
+## Model Details
+
+- Summarization Model: BART (facebook/bart-large-cnn)
+- Question Answering Model: DistilBERT (SQuAD fine-tuned)
+- Keyword Extraction: KeyBERT with Sentence Transformers
+
+---
+
+## Results
+
+- Generates coherent summaries for long documents
+- Extracts meaningful keywords reflecting document topics
+- Accurately answers user queries based on document context
+
+---
+
+## Key Insights
+
+- Transformer models provide strong performance for NLP tasks
+- Combining multiple NLP capabilities improves usability
+- Semantic embeddings enhance keyword extraction quality
+- Context-aware QA enables interactive document exploration
+
+---
+
+## Limitations
+
+- Performance depends on document size and quality
+- Large documents may require chunking for better results
+- Extractive QA may not handle complex reasoning questions
+- Model inference can be computationally expensive
+
+---
+
+## Future Improvements
+
+- Implement document chunking for long texts
+- Add support for more file formats (HTML, CSV)
+- Use advanced models (GPT-based, LLaMA)
+- Deploy on cloud platforms for scalability
+- Add user authentication and document history
+- Improve UI with visual analytics
+
+---
+
+## Conclusion
+
+This project demonstrates the integration of generative AI and NLP techniques to build a smart document assistant. It highlights how transformer models can be used to automate document understanding tasks such as summarization, keyword extraction, and question answering.
+
+---
+
+## Author
+
+Sandeep S L  
+MSc Data Analytics (Computational Science)  
+Digital University of Kerala  
+
+---
+
+## License
+
+This project is open-source and available under the MIT License.
